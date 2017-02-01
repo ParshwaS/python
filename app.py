@@ -30,8 +30,11 @@ def handle_messages():
                     sender_id = messaging_event["sender"]["id"]
                     recipient_id = messaging_event["recipient"]["id"]
                     message_text = messaging_event["message"]["text"]
-
-                    send_message(sender_id, message_text[::-1])
+                    
+                    if message_text[0] == '!':
+                        send_message(sender_id, message_text[::-1])
+                    else:
+                        pass
 
                 if messaging_event.get("delivery"):
                     pass

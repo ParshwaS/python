@@ -32,6 +32,7 @@ def handle_messages():
                     message_text = messaging_event["message"]["text"]
                     
                     if message_text[0] == '!':
+                        message_text = message_text[1:]
                         send_message(sender_id, message_text[::-1])
                     else:
                         pass

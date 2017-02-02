@@ -31,11 +31,13 @@ def handle_messages():
                     recipient_id = messaging_event["recipient"]["id"]
                     message_text = messaging_event["message"]["text"]
                     
-                    if message_text[0] == '!':
+                    if message_text == 'hi' or message_text == 'hey' or message_text == 'Hi' or message_text == 'Hey':
+                        send_message(sender_id, "Greeting!! Bro")
+                    elif message_text[0] == '!':
                         message_text = message_text[1:]
                         send_message(sender_id, message_text[::-1])
                     else:
-                        pass
+                        send_message(sender_id, message_text)
 
                 if messaging_event.get("delivery"):
                     pass

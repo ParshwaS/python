@@ -3,7 +3,7 @@ import requests
 import sys
 import os
 import json
-import wikipedia
+#import wikipedia
 from Credentials import *
 
 app = Flask(__name__)
@@ -42,9 +42,9 @@ def handle_messages():
                         message_text = message_text[1:]
                         send_message(sender_id, message_text[::-1])
                     else:
-                        wikisearch = message_text
+                        #wikisearch = message_text
                         #log(wikipedia.summary(wikisearch, sentences=5))
-                        send_message(sender_id, wikipedia.summary(wikisearch, sentences=5))
+                        send_message(sender_id, message_text)
 
                 if messaging_event.get("delivery"):
                     pass

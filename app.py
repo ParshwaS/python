@@ -31,8 +31,14 @@ def handle_messages():
                     sender_id = messaging_event["sender"]["id"]
                     recipient_id = messaging_event["recipient"]["id"]
                     message_text = messaging_event["message"]["text"]
-                    send_message(sender_id, message_text)
-                    log(wikipedia.summary("Wikipedia"))
+                    
+                    if message_text == 'Hi' or message_text == 'Yo' or message_text == 'Bro' or message_text == 'Hey':
+                        send_message(sender_id, "Greetings !!")
+                    elif message_text[0] == '!':
+                        message_text = message_text[1:]
+                        send_message(sender_id, message_text[::-1])
+                    else:
+                        send_message(sender_id, message_text)
 
                 if messaging_event.get("delivery"):
                     pass

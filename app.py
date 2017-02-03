@@ -39,6 +39,7 @@ def handle_messages():
                         send_message(sender_id, message_text[::-1])
                     else:
                         send_message(sender_id, message_text)
+                        log(wikipedia.summary("Google"))
 
                 if messaging_event.get("delivery"):
                     pass

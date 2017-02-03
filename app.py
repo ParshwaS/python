@@ -35,16 +35,16 @@ def handle_messages():
                     if message_text == 'hi' or message_text == 'hey' or message_text == 'Hi' or message_text == 'Hey':
                         send_message(sender_id, "Greeting!! Bro")
                     elif message_text[::5] == '@wiki':
-                        search = message_text[6::]
-                        log(wikipedia.summary(search, sentences=5))
-                        send_message(sender_id, wikipedia.summary(search, sentences=5))
+                        wikisearch = message_text[6::]
+                        log(wikipedia.summary(wikisearch, sentences=5))
+                        send_message(sender_id, wikipedia.summary(wikisearch, sentences=5))
                     elif message_text[0] == '!':
                         message_text = message_text[1:]
                         send_message(sender_id, message_text[::-1])
                     else:
-                        search = message_text[6::]
-                        log(wikipedia.summary(search, sentences=5))
-                        send_message(sender_id, wikipedia.summary(search, sentences=5))
+                        wikisearch = message_text
+                        log(wikipedia.summary(wikisearch, sentences=5))
+                        send_message(sender_id, wikipedia.summary(wikisearch, sentences=5))
 
                 if messaging_event.get("delivery"):
                     pass

@@ -3,7 +3,7 @@ import requests
 import sys
 import os
 import json
-#import wikipedia
+import wikipedia
 from Credentials import *
 
 app = Flask(__name__)

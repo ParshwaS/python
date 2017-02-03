@@ -14,6 +14,7 @@ def handle_verification():
     if request.args.get('hub.verify_token', '') == VERIFY_TOKEN:
         return request.args.get('hub.challenge', 200)
     else:
+        print wikipedia.summary("Wikipedia")
         return 'Error, wrong validation token'
 
 

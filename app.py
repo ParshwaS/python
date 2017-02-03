@@ -14,7 +14,6 @@ def handle_verification():
     if request.args.get('hub.verify_token', '') == VERIFY_TOKEN:
         return request.args.get('hub.challenge', 200)
     else:
-        log(wikipedia.summary("Wikipedia"))
         return 'Error, wrong validation token'
 
 
@@ -33,6 +32,7 @@ def handle_messages():
                     recipient_id = messaging_event["recipient"]["id"]
                     message_text = messaging_event["message"]["text"]
                     send_message(sender_id, message_text)
+                    log(wikipedia.summary("Wikipedia"))
 
                 if messaging_event.get("delivery"):
                     pass

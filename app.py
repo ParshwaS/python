@@ -44,7 +44,7 @@ def handle_messages():
                             send_message(sender_id, "Sorry, We were unable to find " + message_text)
                         else:
                             final_result = wikipedia.summary(result_search[0], sentences=3)
-                            send_message(sender_id, result_from_wiki)
+                            send_message(sender_id, final_result)
                     else:
                         send_message(sender_id, message_text)
                         

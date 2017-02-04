@@ -38,10 +38,8 @@ def handle_messages():
                         message_text = message_text[1:]
                         send_message(sender_id, message_text[::-1])
                     else:
-                        send_message(sender_id, str(wikipedia.summary(message_text, sentences=3)))
+                        send_message(sender_id, message_text)
                         
-                    send_message(sender_id, "Reached-last!!")
-
                 if messaging_event.get("delivery"):
                     pass
 

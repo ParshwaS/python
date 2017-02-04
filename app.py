@@ -4,7 +4,10 @@ import sys
 import os
 import json
 import wikipedia
+from random import randint
 from Credentials import *
+
+hello_list = ["Greetings !!", "Hi", "Hello", "Yeah", "Yo", "Hola"]
 
 app = Flask(__name__)
 
@@ -33,7 +36,7 @@ def handle_messages():
                     message_text = messaging_event["message"]["text"]
                     
                     if message_text == 'Hi' or message_text == 'Yo' or message_text == 'Bro' or message_text == 'Hey':
-                        send_message(sender_id, "Greetings !!")
+                        send_message(sender_id, hello_list[randint(0, len(hello_list))])
                     elif message_text[0] == '!':
                         message_text = message_text[1:]
                         send_message(sender_id, message_text[::-1])

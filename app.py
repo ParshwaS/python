@@ -37,10 +37,10 @@ def handle_messages():
                     elif message_text[0] == '!':
                         message_text = message_text[1:]
                         send_message(sender_id, message_text[::-1])
-                    '''elif message_text[0] == '@':
-                        message_text = message_text[1:]
-                        result_from_wiki = str(wikipedia.summary(message_text, sentences=3))
-                        send_message(sender_id, result_from_wiki)'''
+                    #elif message_text[0] == '@':
+                    #    message_text = message_text[1:]
+                    #    result_from_wiki = str(wikipedia.summary(message_text, sentences=3))
+                    #    send_message(sender_id, result_from_wiki)
                     else:
                         send_message(sender_id, message_text)
                         

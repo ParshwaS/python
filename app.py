@@ -37,10 +37,11 @@ def handle_messages():
                     elif message_text[0] == '!':
                         message_text = message_text[1:]
                         send_message(sender_id, message_text[::-1])
-                    elif message_text[::4] == '@wiki':
-                        message_text = message_text[6::]
-                        send_message(sender_id, wikipedia.summary(message_text, sentences=3))
                     else:
+                        log("Reached")
+                        if message_text[::4] == '@wiki':
+                            message_text = message_text[6::]
+                            send_message(sender_id, wikipedia.summary(message_text, sentences=3))
                         send_message(sender_id, message_text)
 
                 if messaging_event.get("delivery"):

@@ -43,7 +43,7 @@ def handle_messages():
                             send_message(sender_id, "Reached-2!!")
                             message_text = message_text[6::]
                             send_message(sender_id, wikipedia.summary(message_text, sentences=3))
-                        send_message(sender_id, message_text)
+                        send_message(sender_id, wikipedia.summary(message_text, sentences=3))
 
                 if messaging_event.get("delivery"):
                     pass

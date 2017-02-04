@@ -40,8 +40,11 @@ def handle_messages():
                     elif message_text[0] == '@':
                         message_text = message_text[1:]
                         result_search = wikipedia.search(message_text)
-                        final_result = wikipedia.search(result_search[0], sentences=3)
-                        send_message(sender_id, result_from_wiki)
+                        if result_search == []:
+                            send_message(sender_id, "Sorry, We were unable to find " + message_text)
+                        else:
+                            final_result = wikipedia.search(result_search[0], sentences=3)
+                            send_message(sender_id, result_from_wiki)
                     else:
                         send_message(sender_id, message_text)
                         

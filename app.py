@@ -43,7 +43,7 @@ def handle_messages():
                         if result_search == []:
                             send_message(sender_id, "Sorry, We were unable to find " + message_text)
                         else:
-                            final_result = wikipedia.search(result_search[0], sentences=3)
+                            final_result = wikipedia.summary(result_search[0], sentences=3)
                             send_message(sender_id, result_from_wiki)
                     else:
                         send_message(sender_id, message_text)

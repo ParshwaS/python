@@ -4,6 +4,7 @@ import sys
 import os
 import json
 import wikipedia
+from google import search
 from random import randint
 from Credentials import *
 
@@ -48,6 +49,10 @@ def handle_messages():
                         else:
                             final_result = wikipedia.summary(result_search[0], sentences=3)
                             send_message(sender_id, final_result)
+                    elif message_text[:7] == '@google':
+                        message_text = message_text[8:]
+                        for url in search(message_text, stop=1):
+                            send_message(sender_id, str(url))
                     else:
                         send_message(sender_id, message_text)
                         

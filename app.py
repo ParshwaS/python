@@ -38,8 +38,9 @@ def handle_messages():
                         message_text = message_text[1:]
                         send_message(sender_id, message_text[::-1])
                     else:
-                        log("Reached")
+                        send_message(sender_id, "Reached-1!!")
                         if message_text[::4] == '@wiki':
+                            send_message(sender_id, "Reached-2!!")
                             message_text = message_text[6::]
                             send_message(sender_id, wikipedia.summary(message_text, sentences=3))
                         send_message(sender_id, message_text)

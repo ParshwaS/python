@@ -41,14 +41,14 @@ def handle_messages():
                     elif message_text[0] == '!':
                         message_text = message_text[1:]
                         send_message(sender_id, message_text[::-1])
-                   # elif message_text[:5] == '@wiki':
-                        #message_text = message_text[6:]
-                        #result_search = wikipedia.search(message_text)
-                        #if result_search == []:
-                        #    send_message(sender_id, "Sorry, We were unable to find " + message_text)
-                        #else:
-                        #    final_result = wikipedia.summary(result_search[0], sentences=3)
-                        #    send_message(sender_id, final_result)
+                    elif message_text[:5] == '@wiki':
+                        message_text = message_text[6:]
+                        result_search = wikipedia.search(message_text)
+                        if result_search == []:
+                            send_message(sender_id, "Sorry, We were unable to find " + message_text)
+                        else:
+                            final_result = wikipedia.summary(result_search[0], sentences=3)
+                            send_message(sender_id, final_result)
                     elif message_text[:7] == '@google':
                         message_text = message_text[8:]
                         for url in search(message_text, stop=1):

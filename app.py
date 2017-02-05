@@ -46,9 +46,9 @@ def handle_messages():
                         #result_search = wikipedia.search(message_text)
                         #if result_search == []:
                         #    send_message(sender_id, "Sorry, We were unable to find " + message_text)
-                        else:
-                            final_result = wikipedia.summary(result_search[0], sentences=3)
-                            send_message(sender_id, final_result)
+                        #else:
+                        #    final_result = wikipedia.summary(result_search[0], sentences=3)
+                        #    send_message(sender_id, final_result)
                     elif message_text[:7] == '@google':
                         message_text = message_text[8:]
                         for url in search(message_text, stop=1):

@@ -35,18 +35,7 @@ def handle_messages():
                     sender_id = messaging_event["sender"]["id"]
                     recipient_id = messaging_event["recipient"]["id"]
                     message_text = messaging_event["message"]["text"]
-                    
-                    if message_text == 'Hi' or message_text == 'Yo' or message_text == 'Bro' or message_text == 'Hey':
-                        send_message(sender_id, hello_list[randint(0, len(hello_list))])
-                    elif message_text[0] == '!':
-                        message_text = message_text[1:]
-                        send_message(sender_id, message_text[::-1])
-                    elif message_text[:7] == '@google':
-                        message_text = message_text[8:]
-                        for url in search(message_text, stop=1):
-                            send_message(sender_id, str(url))
-                    else:
-                        send_message(sender_id, message_text)
+                    send_message(sender_id, message_text)
                         
                 if messaging_event.get("delivery"):
                     pass
@@ -61,7 +50,7 @@ def handle_messages():
 
 
 def send_message(recipient_id, message_text):
-    #log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
+    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
 
     params = {
         "access_token": PAGE_ACCESS_TOKEN
